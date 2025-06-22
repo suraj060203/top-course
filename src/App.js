@@ -32,18 +32,20 @@ useEffect(() => {
 }, []); // Empty dependency array means this effect runs once when the component mounts
 
   return (
-    <div> 
+    <div className="min-h-screen flex-col flex bg-bgDark2"> 
       <div>
         <Navbar></Navbar>
       </div>
-      <div>
-        <Filter filterData={filterData}></Filter>
-      </div>  
-      <div>
-        {
-          loading ? (<Spinner/>) : (<Cards courses={courses}/>)
-        }
-      </div> 
+      <div className="bg-bgDark2">
+          <div>
+            <Filter filterData={filterData}></Filter>
+          </div>  
+          <div className="w-11/12 max-w-[1200px] min-h-[50vh] mx-auto flex flex-wrap justify-center items-center">
+          {
+            loading ? (<Spinner/>) : (<Cards courses={courses}/>)
+          }
+          </div> 
+      </div>
     </div>
     
   );
